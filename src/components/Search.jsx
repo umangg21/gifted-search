@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { GiphyService } from '../service/GiphyService';
 import Loading from './common/Loading';
 import SearchInput from './common/SearchInput';
+import GifyView from './GifyView';
 
 export default class Search extends Component {
 
@@ -42,6 +43,22 @@ export default class Search extends Component {
 
     }
 
+    handleScroll = () => {
+        window.onscroll = () => {
+            if (Math.ceil(window.innerHeight + window.pageYOffset) >= document.body.scrollHeight && this.state.searchQuery) {
+                const { offset } = this.state;
+                this.setState({
+                    offset: offset + 25
+                }, () => this.getGipyhs());
+            }
+        }
+    }
+
+    componentDidMount() {
+        window.addEventListener('scroll', this.handleScroll);
+    }
+
+
     render() {
 
         return (
@@ -74,6 +91,11 @@ export default class Search extends Component {
                 }
 
                 <div className="search-result-body">
+                    {
+                        this.state.giphyList && this.state.giphyList.map((giphy) =>
+                            <GifyView key={giphy.id} giphy={giphy} />
+                        )
+                    }
                 </div>
             </div>
         )
