@@ -3,6 +3,7 @@ import { GiphyService } from '../service/GiphyService';
 import Loading from './common/Loading';
 import SearchInput from './common/SearchInput';
 import GifyView from './GifyView';
+import * as debounce from "debounce";
 
 export default class Search extends Component {
 
@@ -18,8 +19,12 @@ export default class Search extends Component {
         }
     }
 
-    getGipyhs = () => {
+    delayedGetGipyhs = () => {
+        this.delayedGetter.clear();
+        this.delayedGetter();
+    };
 
+    getGipyhs = () => {
         this.setState({ isLoading: true, isError: false })
 
         const { offset, searchQuery } = this.state
@@ -43,13 +48,15 @@ export default class Search extends Component {
 
     }
 
+    delayedGetter = debounce(this.getGipyhs, 500);
+
     handleScroll = () => {
         window.onscroll = () => {
             if (Math.ceil(window.innerHeight + window.pageYOffset) >= document.body.scrollHeight && this.state.searchQuery) {
                 const { offset } = this.state;
                 this.setState({
                     offset: offset + 25
-                }, () => this.getGipyhs());
+                }, () => this.delayedGetGipyhs());
             }
         }
     }
@@ -76,7 +83,7 @@ export default class Search extends Component {
                             value={this.state.searchQuery}
                             context={this}
                             afterInput={() => {
-                                this.getGipyhs()
+                                this.delayedGetGipyhs()
                             }}
                         />
                     </div>
