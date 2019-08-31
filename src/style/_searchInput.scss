@@ -1,0 +1,26 @@
+.form-group {
+  position: relative;
+}
+
+.searchBox {
+  position: relative;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #222222;
+  font-size: 18px;
+  padding: 12px 12px 12px 40px;
+  width: -webkit-fill-available;
+  font-weight: 500;
+
+  &:focus {
+    outline: none;
+    border: 1px solid #888;
+  }
+}
+
+.searchIcon {
+  position: absolute;
+  top: 13px;
+  left: 13px;
+}
