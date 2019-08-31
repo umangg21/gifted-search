@@ -5,6 +5,7 @@ import SearchInput from './common/SearchInput';
 import GifyView from './GifyView';
 import * as debounce from "debounce";
 import Toggle from './common/Toggle';
+import { SunIcon, MoonIcon } from '../assets/icons';
 
 export default class Search extends Component {
 
@@ -93,7 +94,7 @@ export default class Search extends Component {
                     <div className="search-header-extra">
 
                         <div className="toggle-container">
-                            <div> Light </div>
+                            <div> <SunIcon /> </div>
                             <div className="toggle-container-div">
                                 <Toggle isChecked={this.state.darkMode}
                                     onToggle={() => {
@@ -101,15 +102,13 @@ export default class Search extends Component {
                                     }}
                                 />
                             </div>
-                            <div> Dark </div>
+                            <div> <MoonIcon /> </div>
                         </div>
 
                     </div>
                 </div>
 
-                {
-                    this.state.isLoading && <Loading />
-                }
+
 
                 <div className={`search-result-body ${this.state.darkMode ? "dark" : ""}`}>
                     {
@@ -118,6 +117,9 @@ export default class Search extends Component {
                         )
                     }
                 </div>
+                {
+                    this.state.isLoading && <Loading />
+                }
             </div>
         )
     }
