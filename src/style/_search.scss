@@ -1,9 +1,49 @@
 $color-border: #dcdcdc;
 $color-title: #797979;
+$transition-time: 0.2s;
+$transition-function: ease;
+$color-body: #f3f3f3;
 
-.dark {
+html {
+  transition: all $transition-time $transition-function;
+  background: $color-body;
+}
+
+.dark-header {
   background: #000 !important;
   color: #fff !important;
+  $transition-time: 0.5s;
+}
+
+.dark {
+  background: #252525 !important;
+  color: #fff !important;
+  $transition-time: 0.5s;
+}
+
+.initial {
+  display: flex;
+  min-height: 100vh !important;
+  transition: all $transition-time $transition-function;
+
+  .search-header-title {
+    > h1 {
+      font-size: 60px;
+      transition: all $transition-time $transition-function;
+    }
+    margin-top: auto;
+    width: 100%;
+  }
+
+  .search-header-input {
+    margin: auto;
+    width: 50%;
+  }
+
+  .search-header-extra {
+    margin-bottom: auto;
+    width: 100%;
+  }
 }
 
 .search-header {
@@ -17,9 +57,12 @@ $color-title: #797979;
   flex-wrap: wrap;
   padding: 10px;
   border-bottom: 1px solid $color-border;
+  transition: all $transition-time $transition-function;
 
   &-title {
     > h1 {
+      text-shadow: 1px 6px 10px rgba(32, 33, 36, 0.28);
+      cursor: pointer;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -27,24 +70,32 @@ $color-title: #797979;
       font-weight: 800;
       font-size: 36px;
       color: $color-title;
+      transition: all $transition-time $transition-function;
     }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all $transition-time $transition-function;
   }
 
   &-input {
-    margin: 0 10px 0 10px;
+    margin: auto 10px auto 10px;
+    transition: all $transition-time $transition-function;
   }
 
   &-extra {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all $transition-time $transition-function;
   }
 }
 
 .search-result-body {
   display: flex;
   flex-wrap: wrap;
-  background: #f9f9f9;
+  background: $color-body;
+  transition: all $transition-time $transition-function;
 }
 
 /* Desktop Styles */
@@ -66,7 +117,7 @@ $color-title: #797979;
   }
 
   .search-result-body {
-    margin-top: 81px;
+    margin-top: 90px;
   }
 }
 
@@ -89,7 +140,7 @@ $color-title: #797979;
   }
 
   .search-result-body {
-    margin-top: 81px;
+    margin-top: 90px;
   }
 }
 
@@ -111,6 +162,6 @@ $color-title: #797979;
   }
 
   .search-result-body {
-    margin-top: 154px;
+    margin-top: 160px;
   }
 }

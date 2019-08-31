@@ -19,6 +19,7 @@ export default class Search extends Component {
             darkMode: false,
             isLoading: false,
             isError: false,
+            initial: true,
         }
     }
 
@@ -70,23 +71,23 @@ export default class Search extends Component {
 
 
     render() {
-
         return (
             <div>
 
-                <div className={`search-header ${this.state.darkMode ? "dark" : ""}`}>
+                <div className={`search-header ${this.state.darkMode ? "dark-header" : ""} ${this.state.initial ? "initial" : ""}`} >
                     <div className="search-header-title">
-                        <h1>GIFted</h1>
+                        <h1 onClick={() => { this.setState({ initial: true }) }}>GIFted</h1>
                     </div>
 
                     <div className="search-header-input">
                         <SearchInput
-                            placeholder="Search for a giphy"
+                            placeholder="Search for a giphy and press Enter"
                             name="searchQuery"
                             value={this.state.searchQuery}
                             context={this}
-                            afterInput={() => {
-                                this.delayedGetGipyhs()
+                            onSubmit={() => {
+                                this.setState({ initial: false })
+                                this.delayedGetter()
                             }}
                         />
                     </div>
@@ -98,7 +99,14 @@ export default class Search extends Component {
                             <div className="toggle-container-div">
                                 <Toggle isChecked={this.state.darkMode}
                                     onToggle={() => {
-                                        this.setState({ darkMode: !this.state.darkMode })
+                                        this.setState({ darkMode: !this.state.darkMode },
+                                            () => {
+                                                if (this.state.darkMode) {
+                                                    document.getElementsByTagName("html")[0].className = "dark"
+                                                } else {
+                                                    document.getElementsByTagName("html")[0].className = ""
+                                                }
+                                            })
                                     }}
                                 />
                             </div>
@@ -108,15 +116,17 @@ export default class Search extends Component {
                     </div>
                 </div>
 
-
-
-                <div className={`search-result-body ${this.state.darkMode ? "dark" : ""}`}>
-                    {
-                        this.state.giphyList && this.state.giphyList.map((giphy) =>
-                            <GifyView key={giphy.id} giphy={giphy} />
-                        )
-                    }
-                </div>
+                {
+                    !this.state.initial
+                    &&
+                    <div className={`search-result-body ${this.state.darkMode ? "dark" : ""}`}>
+                        {
+                            this.state.giphyList && this.state.giphyList.map((giphy) =>
+                                <GifyView key={giphy.id} giphy={giphy} />
+                            )
+                        }
+                    </div>
+                }
                 {
                     this.state.isLoading && <Loading />
                 }

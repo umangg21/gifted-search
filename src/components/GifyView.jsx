@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Loading from './common/Loading';
 
 export default class GifyView extends Component {
 
@@ -28,7 +27,7 @@ export default class GifyView extends Component {
 
         const { giphy } = this.props
         return (
-            <div className="giphy-view-container">
+            <div className="giphy-view-container" onClick={this.playPause}>
                 <video id={giphy.id} style={{ width: `100%` }}
                     onEnded={() => this.setState({ play: !this.state.play })}
                     onLoadedData={() => this.setState({ showControls: true })}>
@@ -38,7 +37,7 @@ export default class GifyView extends Component {
                     this.state.showControls
                     &&
                     <div>
-                        <button className="giphy-button" onClick={this.playPause}>{this.state.play ? "pause" : "play"}</button>
+                        <button className="giphy-button" >{this.state.play ? "Pause" : "Play"}</button>
                     </div>
                 }
             </div>

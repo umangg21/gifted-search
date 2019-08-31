@@ -5,12 +5,11 @@ import { SearchIcon } from "../../assets/icons";
 const SearchInput = (props) => <div>
     <div className="form-group">
         <input className={"searchBox"}
-            title="Search typing to search giphy"
+            title="Search typing to search giphy and press Enter"
             autoComplete="off"
             disabled={props.disabled}
             readOnly={props.readOnly}
             placeholder={props.placeholder}
-            type={props.type}
             onBlur={props.onBlur}
             onFocus={props.onFocus}
             ref={props.ref}
@@ -28,9 +27,15 @@ const SearchInput = (props) => <div>
                 if (props.afterInput)  //for comparing old and new values
                     props.afterInput(props.value, e.target.value, e);
             }}
+            onKeyPress={(e) => {
+                if (e.keyCode === 13 || e.charCode === 13 || e.which === 13) {
+                    props.onSubmit()
+                }
+            }}
             pattern={props.pattern}
             required={!props.isNotRequired} />
 
+        <input type="submit" hidden />
         <div className="searchIcon">
             <SearchIcon color={"#888"} />
         </div>
