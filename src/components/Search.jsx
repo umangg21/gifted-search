@@ -4,6 +4,7 @@ import Loading from './common/Loading';
 import SearchInput from './common/SearchInput';
 import GifyView from './GifyView';
 import * as debounce from "debounce";
+import Toggle from './common/Toggle';
 
 export default class Search extends Component {
 
@@ -14,6 +15,7 @@ export default class Search extends Component {
             searchQuery: "",
             offset: 0,
             giphyList: [],
+            darkMode: false,
             isLoading: false,
             isError: false,
         }
@@ -71,7 +73,7 @@ export default class Search extends Component {
         return (
             <div>
 
-                <div className="search-header">
+                <div className={`search-header ${this.state.darkMode ? "dark" : ""}`}>
                     <div className="search-header-title">
                         <h1>GIFted</h1>
                     </div>
@@ -88,7 +90,19 @@ export default class Search extends Component {
                         />
                     </div>
 
-                    <div className="seacrh-header-extraa">
+                    <div className="search-header-extra">
+
+                        <div className="toggle-container">
+                            <div> Light </div>
+                            <div className="toggle-container-div">
+                                <Toggle isChecked={this.state.darkMode}
+                                    onToggle={() => {
+                                        this.setState({ darkMode: !this.state.darkMode })
+                                    }}
+                                />
+                            </div>
+                            <div> Dark </div>
+                        </div>
 
                     </div>
                 </div>
@@ -97,7 +111,7 @@ export default class Search extends Component {
                     this.state.isLoading && <Loading />
                 }
 
-                <div className="search-result-body">
+                <div className={`search-result-body ${this.state.darkMode ? "dark" : ""}`}>
                     {
                         this.state.giphyList && this.state.giphyList.map((giphy) =>
                             <GifyView key={giphy.id} giphy={giphy} />

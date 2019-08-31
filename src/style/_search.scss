@@ -1,6 +1,11 @@
 $color-border: #dcdcdc;
 $color-title: #797979;
 
+.dark {
+  background: #000 !important;
+  color: #fff !important;
+}
+
 .search-header {
   z-index: 100;
   background: #dcdcdc;
@@ -30,6 +35,9 @@ $color-title: #797979;
   }
 
   &-extra {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
@@ -53,12 +61,12 @@ $color-title: #797979;
     }
 
     &-extra {
-      width: 20%;
+      width: 15%;
     }
   }
 
   .search-result-body {
-    margin-top: 90px;
+    margin-top: 81px;
   }
 }
 
@@ -68,20 +76,20 @@ $color-title: #797979;
   .search-header {
     min-height: 60px;
     &-title {
-      width: 30%;
+      width: 20%;
     }
 
     &-input {
-      width: 60%;
+      width: 50%;
     }
 
     &-extra {
-      width: 10%;
+      width: 25%;
     }
   }
 
   .search-result-body {
-    margin-top: 90px;
+    margin-top: 81px;
   }
 }
 
@@ -98,11 +106,11 @@ $color-title: #797979;
     }
 
     &-extra {
-      width: 0%;
+      width: 100%;
     }
   }
 
   .search-result-body {
-    margin-top: 130px;
+    margin-top: 154px;
   }
 }

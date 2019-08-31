@@ -29,9 +29,6 @@ export default class GifyView extends Component {
         const { giphy } = this.props
         return (
             <div className="giphy-view-container">
-                {
-                    !this.state.showControls && <Loading />
-                }
                 <video id={giphy.id} style={{ width: `100%` }}
                     onEnded={() => this.setState({ play: !this.state.play })}
                     onLoadedData={() => this.setState({ showControls: true })}>
