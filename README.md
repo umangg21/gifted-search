@@ -1,68 +1,69 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### GIFted
 
-## Available Scripts
+This is GIF search project build with React JS and Giphy Developer API's available on - ​https://developers.giphy.com.
+This is a responsive app which works on all the screens including Desktop, Mobile, Tab, and IPad.
+User has to enter Keywords (like car, apple, laugh and cartoon e.t.c) in Search Bar and Press Enter Key to get GIFs.
+User can Play/Pause GIFs on clicking on it.
+User can change the Dark/Light mode theme by Toggle theme available at the right on Search Bar.
+User can Scroll infinitely to view More results.
+ 
+## Components
 
-In the project directory, you can run:
+1. Search: Main Component/Container which includes all the other child components. Search Components maintain a list of GIF. Used to change the theme.
 
-### `npm start`
+2. GifyView: GifyView Component used to display a single GIF and also manages Play/Pause.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+3. Loading: Reusable Component Used to display round loader while API is loading.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+4. Toggle:  Reusable Component Used to toggle 2 options. (Here it is used to toggle Dark/Light Mode theme.)
 
-### `npm test`
+5. SearchInput: is a  Reusable Search Bar component. Keeps the state of keyword and on press enter sends the keyword to the parent component.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Service 
 
-### `npm run build`
+GiphyService: GiphyService is service used to keep constants used in APIs and methods to call API's.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Assets
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Icons: Having reusable icons used in the projects in SVG component format.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Style
 
-### `npm run eject`
+Having Stylesheets of various components used to GIFted.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Test
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Contains all the test for all the components having positive and negative test cases. 
+Having below Code Coverage:
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+GifyView.jsx : 85.71%
+Search.jsx: 58.06%
+Loading.jsx: 100%
+SearchInput.jsx: 100%
+Toggle.jsx: 100%
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+### Special Features.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. User can Play/Pause GIFs on clicking on it.
+2. User can change Dark/Light mode theme by Toggle theme available at the right on Search Bar.
+3. User can Scroll infinitely to view More results.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### Setup Instructions
 
-### Analyzing the Bundle Size
+Requirments.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+1. The system should have Node.
+2. Run "npm install" in the root directory
+3. Run "npm start"
 
-### Making a Progressive Web App
+Then open [http://localhost:3000/](http://localhost:3000/) to see your app.<br>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
 
-### Advanced Configuration
+4. Run "npm run test" to run the test in interactive watch mode.
+5. Run "npm run coverage" to run test and view coverage of all the components.
+6. When you’re ready to deploy to production, create a minified bundle with `npm run build`.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Screenshots are attached.
