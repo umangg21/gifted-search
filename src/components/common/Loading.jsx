@@ -1,11 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class Loading extends Component {
-    render() {
-        return (
-            <div className="parent-loader" >
-                <div className="loading-circle" />
-            </div>
-        )
-    }
-}
+const Loading = () => <div id="loader" className="parent-loader" >
+    <div className="loading-circle" />
+</div>
+
+export default Loading;

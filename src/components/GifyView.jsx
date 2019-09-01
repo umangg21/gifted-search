@@ -14,10 +14,10 @@ export default class GifyView extends Component {
     playPause = () => {
         const { giphy } = this.props
         var video = document.getElementById(giphy.id);
-        if (video.paused) {
+        if (video && video.paused) {
             video.play()
         }
-        else {
+        else if(video && video.play){
             video.pause()
         }
         this.setState({ play: !this.state.play })

@@ -2,7 +2,7 @@ import React from 'react'
 
 const Toggle = (props) => {
     return (
-        <div onClick={(e) => {
+        <div id="toggleContainer" onClick={(e) => {
             if (e.target.nodeName === "SPAN")
                 props.onToggle(!props.isChecked)
         }}>

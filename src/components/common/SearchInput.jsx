@@ -5,6 +5,7 @@ import { SearchIcon } from "../../assets/icons";
 const SearchInput = (props) => <div>
     <div className="form-group">
         <input className={"searchBox"}
+            id="searchInput"
             title="Search typing to search giphy and press Enter"
             autoComplete="off"
             disabled={props.disabled}
