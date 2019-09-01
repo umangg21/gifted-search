@@ -45,7 +45,7 @@ export default class Search extends Component {
             })
 
     }
-    
+
     handleScroll = () => {
         window.onscroll = () => {
             if (Math.ceil(window.innerHeight + window.pageYOffset) >= document.body.scrollHeight && this.state.searchQuery) {
@@ -55,6 +55,17 @@ export default class Search extends Component {
                 }, () => this.getGipyhs());
             }
         }
+    }
+
+    toggleDarkMode = () => {
+        this.setState({ darkMode: !this.state.darkMode },
+            () => {
+                if (this.state.darkMode) {
+                    document.getElementsByTagName("html")[0].className = "dark"
+                } else {
+                    document.getElementsByTagName("html")[0].className = ""
+                }
+            })
     }
 
     componentDidMount() {
@@ -68,7 +79,7 @@ export default class Search extends Component {
 
                 <div className={`search-header ${this.state.darkMode ? "dark-header" : ""} ${this.state.initial ? "initial" : ""}`} >
                     <div className="search-header-title">
-                        <h1 onClick={() => { this.setState({ initial: true }) }}>GIFted</h1>
+                        <h1 id="gifted-header-title" onClick={() => { this.setState({ initial: true }) }}>GIFted</h1>
                     </div>
 
                     <div className="search-header-input">
@@ -90,16 +101,7 @@ export default class Search extends Component {
                             <div> <SunIcon /> </div>
                             <div className="toggle-container-div">
                                 <Toggle isChecked={this.state.darkMode}
-                                    onToggle={() => {
-                                        this.setState({ darkMode: !this.state.darkMode },
-                                            () => {
-                                                if (this.state.darkMode) {
-                                                    document.getElementsByTagName("html")[0].className = "dark"
-                                                } else {
-                                                    document.getElementsByTagName("html")[0].className = ""
-                                                }
-                                            })
-                                    }}
+                                    onToggle={this.toggleDarkMode}
                                 />
                             </div>
                             <div> <MoonIcon /> </div>
@@ -111,7 +113,7 @@ export default class Search extends Component {
                 {
                     !this.state.initial
                     &&
-                    <div className={`search-result-body ${this.state.darkMode ? "dark" : ""}`}>
+                    <div id="giphy-list" className={`search-result-body ${this.state.darkMode ? "dark" : ""}`}>
                         {
                             this.state.giphyList && this.state.giphyList.map((giphy) =>
                                 <GifyView key={giphy.id} giphy={giphy} />
