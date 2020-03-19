@@ -1,22 +1,20 @@
 {
   "name": "gifted-search",
-  "version": "0.1.0",
+  "version": "1.1.0",
+  "homepage": "http://umangg21.github.io/gifted-search",
   "private": true,
   "dependencies": {
-    "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.14.0",
-    "node-sass": "^4.12.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-scripts": "3.1.1",
-    "sass-loader": "^8.0.0"
+    "react-scripts": "3.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "coverage": "npm run test -- --coverage --watchAll=false"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -33,10 +31,7 @@
       "last 1 safari version"
     ]
   },
-  "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.jsx",
-      "!node_modules/**"
-    ]
+  "devDependencies": {
+    "gh-pages": "^2.2.0"
   }
 }
