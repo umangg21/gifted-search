@@ -1,0 +1,62 @@
+$card-border-color: #eeeeee;
+$card-border-radius: 8px;
+
+.giphy-view-container {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-color: $card-border-color;
+  border-radius: $card-border-radius;
+  box-shadow: 3px 0 10px 1px rgba(0, 0, 0, 0.03);
+  border: none;
+
+  cursor: pointer ;
+  -webkit-transition: all 250ms cubic-bezier(0.02, 0.01, 0.47, 1);
+  transition: all 250ms cubic-bezier(0.02, 0.01, 0.47, 1);
+  color: #4b4f56;
+
+  &:hover {
+    -webkit-box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1);
+    -webkit-transform: translate(0, -2px);
+    transform: translate(0, -2px);
+    -webkit-transition-delay: 0s !important;
+    transition-delay: 0s !important;
+  }
+}
+
+.giphy-button {
+  cursor: pointer;
+  position: relative;
+  background: #0000008c;
+  color: white;
+  width: fit-content;
+  margin: auto;
+  border-radius: 5px;
+  &:focus {
+    outline: 0;
+  }
+}
+
+/* Desktop Styles */
+@media only screen and (min-width: 961px) {
+  .giphy-view-container {
+    width: 23%;
+  }
+}
+
+/* Tablet Styles */
+@media only screen and (min-width: 401px) and (max-width: 960px) {
+  .giphy-view-container {
+    width: 46%;
+  }
+}
+
+/* Mobile Styles */
+@media only screen and (max-width: 400px) {
+  .giphy-view-container {
+    width: 100%;
+  }
+}
