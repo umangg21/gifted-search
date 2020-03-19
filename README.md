@@ -1,5 +1,9 @@
 ### GIFted
 
+App Link: https://umangg21.github.io/gifted-search/
+
+CodeSandbox: https://codesandbox.io/s/github/umangg21/gifted-search
+
 This is GIF search project build with React JS and Giphy Developer API's available on - ​https://developers.giphy.com.
 This is a responsive app which works on all the screens including Desktop, Mobile, Tab, and IPad.
 User has to enter Keywords (like car, apple, laugh and cartoon e.t.c) in Search Bar and Press Enter Key to get GIFs.
