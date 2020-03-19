@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/gifted-search/static/css/main.2cce8147.chunk.css",
+    "main.js": "/gifted-search/static/js/main.5f4d8e5f.chunk.js",
+    "main.js.map": "/gifted-search/static/js/main.5f4d8e5f.chunk.js.map",
+    "runtime~main.js": "/gifted-search/static/js/runtime~main.e3705e99.js",
+    "runtime~main.js.map": "/gifted-search/static/js/runtime~main.e3705e99.js.map",
+    "static/js/2.313c1519.chunk.js": "/gifted-search/static/js/2.313c1519.chunk.js",
+    "static/js/2.313c1519.chunk.js.map": "/gifted-search/static/js/2.313c1519.chunk.js.map",
+    "index.html": "/gifted-search/index.html",
+    "precache-manifest.9c2330a687d67b9fe517019b4d0fa577.js": "/gifted-search/precache-manifest.9c2330a687d67b9fe517019b4d0fa577.js",
+    "service-worker.js": "/gifted-search/service-worker.js",
+    "static/css/main.2cce8147.chunk.css.map": "/gifted-search/static/css/main.2cce8147.chunk.css.map",
+    "static/media/logo.svg": "/gifted-search/static/media/logo.5d5d9eef.svg"
+  }
+}
